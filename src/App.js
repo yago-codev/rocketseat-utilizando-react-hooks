@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [techs, setTechs] = useState(['Node', 'React']);
+  const [newTech, setNewTech] = useState('');
+
+  function handleAddTech() {
+    setTechs([...techs, newTech]);
+    setNewTech('');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <ul>
+        {techs.map(tech => (
+          <li key={tech}>{tech}</li>
+        ))}
+      </ul>
+      <input
+        type="text"
+        placeholder="Nome da nova tecnologia..."
+        onChange={e => setNewTech(e.target.value)}
+        value={newTech}
+      />
+      <button type="button" onClick={handleAddTech}>
+        Adicionar Tecnologia
+    </button>
+    </>
+  )
 }
 
 export default App;

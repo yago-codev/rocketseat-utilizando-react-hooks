@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'prettier'],
+  plugins: ['react', 'prettier', 'react-hooks'],
   rules: {
     // sobrescrevendo regras que vem por default no padrão de style guide da AirBnB
     'prettier/prettier': 'error', // vai apontar todos os erros encontrados que desrespeitem o plugin do prettier
@@ -28,5 +28,7 @@ module.exports = {
     'import/prefer-default-export': 'off', // possibilita que seja utilizado o export sem obrigatoriamente declararmos o default
     'no-param-reassign': 'off', // habilitando a alteração de parâmetros recebidos em funções
     'no-console': ['error', { allow: ['tron'] }], // possibilta que possamos utilizar o console do reactotron
+    'react-hooks/rules-of-hooks': 'error', // habilitando os erros ao utilizarmos os Hooks,
+    'react-hooks/exhaustive-deps': 'warn' // habilitando warnings quando estivermos faltando com alguma dependencia nos effects dos Hooks
   },
 };
